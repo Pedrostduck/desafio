@@ -11,7 +11,7 @@
         <style>
 
 canvas{
-background-color: lightblue;
+background-color: lawngreen;
 display: block;
 margin: 0 auto;
 }
@@ -20,7 +20,7 @@ margin: 0 auto;
 
 </head>
 <body>
-<canvas id="ganeCanvas" width="500" height="500"></canvas>
+<canvas id="gameCanvas" width="500" height="500"></canvas>
 
 <script>
     
@@ -44,12 +44,12 @@ let setaDireita = false;
 
 function desenhaJogador() {
 ctx.fillStyle = "green";
-ctx.fillRect(jogadorX, canvas.height - jogadorAltura, jogadorLargura, jogadorA)
+ctx.fillRect(jogadorX, canvas.height - jogadorAltura, jogadorLargura, jogadorA);
 }
 
 function desenhaObjeto() {
 ctx.fillStyle = "red";
-ctx.fillRect(objetox, objetoy, objetoLargura, objetoAltura);
+ctx.fillRect(objetoX, objetoY, objetoLargura, objetoAltura);
 }
 
 
@@ -59,7 +59,7 @@ ctx.font = "20px Arial";
 ctx.fillText("Pontuação: " + pontuacao, 10, 20);
 }
 
-function atualizar() {
+function atualizar() {  
 if (setaDireita && jogadorX < canvas.width - jogadorLargura) {
 jogadorX += 7; 
 } else if (setaEsquerda && jogadorx > 0) {
@@ -78,11 +78,13 @@ document.location.reload();
 
 }
 
+{
 if (
 objetoY + objetoAltura > canvas.height - jogadorAltura &&
 objetoX + objetoLargura > jogadorX &&
 objetox < jogadorX + jogadorLargura
-) {
+) 
+    {
 
     pontuacao++;
 
